@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>أحمد عبد القادر العاني | ZEN DIAMOND</title>
+
+<meta name="theme-color" content="#000000">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+
+background:
+radial-gradient(circle at top,#2a2a2a,#000);
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+overflow:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+height:600px;
+
+background:#d4af37;
+
+filter:blur(220px);
+
+opacity:.15;
+
+top:-250px;
+right:-200px;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:500px;
+height:500px;
+
+background:#ffffff;
+
+filter:blur(200px);
+
+opacity:.05;
+
+bottom:-200px;
+left:-150px;
+
+}
+
+.container{
+
+position:relative;
+
+z-index:5;
+
+width:100%;
+max-width:430px;
+
+padding:25px;
+
+}
+
+.card{
+
+border-radius:28px;
+
+overflow:hidden;
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.45),
+
+0 0 40px rgba(212,175,55,.18);
+
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px) scale(1.02);
+
+box-shadow:
+
+0 30px 70px rgba(0,0,0,.55),
+
+0 0 60px rgba(212,175,55,.25);
+
+}
+
+.card img{
+
+display:block;
+
+width:100%;
+
+height:auto;
+
+}
+
+.buttons{
+
+margin-top:28px;
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+}
+
+.btn{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+padding:14px;
+
+border:none;
+
+border-radius:16px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+color:white;
+
+font-size:15px;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:#d4af37;
+
+color:#000;
+
+transform:translateY(-3px);
+
+}
+
+.footer{
+
+margin-top:28px;
+
+text-align:center;
+
+color:#9b9b9b;
+
+font-size:13px;
+
+}
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.9);
+
+justify-content:center;
+
+align-items:center;
+
+padding:25px;
+
+z-index:999;
+
+}
+
+.modal img{
+
+max-width:95%;
+
+max-height:95vh;
+
+border-radius:20px;
+
+}
+
+.close{
+
+position:absolute;
+
+top:20px;
+
+left:20px;
+
+color:white;
+
+font-size:35px;
+
+cursor:pointer;
+
+}
+
+.fade{
+
+animation:fade .6s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+transform:none;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container fade">
+
+<div class="card" onclick="openImage()">
+
+<img src="./1.jpg" alt="Business Card">
+
+</div>
+
+<div class="buttons">
+
+<a class="btn" href="tel:009647801129110">
+
+<i class="fa-solid fa-phone"></i>
+
+اتصال
+
+</a>
+
+<a class="btn"
+href="https://wa.me/9647801129110">
+
+<i class="fab fa-whatsapp"></i>
+
+واتساب
+
+</a>
+
+<a class="btn"
+href="contact.vcf"
+download>
+
+<i class="fa-solid fa-address-card"></i>
+
+حفظ جهة الاتصال
+
+</a>
+
+<button class="btn"
+onclick="copyNumber()">
+
+<i class="fa-solid fa-copy"></i>
+
+نسخ الرقم
+
+</button>
+
+</div>
+
+<div class="footer">
+
+ZEN DIAMOND © 2026
+
+</div>
+
+</div>
+
+<div class="modal" id="modal">
+
+<span class="close" onclick="closeImage()">
+
+&times;
+
+</span>
+
+<img src="assets/card.png">
+
+</div>
+
+<script>
+
+function copyNumber(){
+
+navigator.clipboard.writeText("009647801129110");
+
+alert("تم نسخ الرقم");
+
+}
+
+function openImage(){
+
+document.getElementById("modal").style.display="flex";
+
+}
+
+function closeImage(){
+
+document.getElementById("modal").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>
