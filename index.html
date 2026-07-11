@@ -18,6 +18,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
 
 <style>
 
+
+
 *{
 margin:0;
 padding:0;
@@ -40,6 +42,191 @@ overflow:hidden;
 
 }
 
+/* ---------- Stars Background ---------- */
+
+.stars,
+.stars2,
+.shooting-stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.stars{
+    background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(2px 2px at 90px 150px,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 200px 80px,#fff,transparent),
+    radial-gradient(2px 2px at 300px 220px,#fff,transparent),
+    radial-gradient(2px 2px at 500px 120px,#fff,transparent),
+    radial-gradient(1px 1px at 650px 60px,#fff,transparent),
+    radial-gradient(2px 2px at 850px 180px,#fff,transparent),
+    radial-gradient(2px 2px at 1000px 320px,#fff,transparent);
+
+    background-size:1200px 700px;
+
+    animation:moveStars 90s linear infinite;
+    opacity:.7;
+}
+
+.stars2{
+
+    background-image:
+    radial-gradient(1px 1px,#fff,transparent);
+
+    background-size:120px 120px;
+
+    animation:moveStars2 160s linear infinite;
+
+    opacity:.3;
+
+}
+
+@keyframes moveStars{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-600px);
+
+    }
+
+}
+
+@keyframes moveStars2{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(-500px);
+
+    }
+
+}
+
+/* Twinkle */
+
+.stars::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(circle,#fff 0%,transparent 70%);
+
+mix-blend-mode:screen;
+
+opacity:.15;
+
+animation:twinkle 3s ease-in-out infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+from{
+
+opacity:.08;
+
+}
+
+to{
+
+opacity:.22;
+
+}
+
+}
+
+/* Shooting Stars */
+
+.shooting-stars span{
+
+position:absolute;
+
+width:160px;
+
+height:2px;
+
+background:linear-gradient(90deg,#fff,transparent);
+
+border-radius:999px;
+
+opacity:.9;
+
+animation:shoot 5s linear infinite;
+
+}
+
+.shooting-stars span:nth-child(1){
+
+top:12%;
+left:-200px;
+animation-delay:0s;
+
+}
+
+.shooting-stars span:nth-child(2){
+
+top:35%;
+left:-300px;
+animation-delay:2.5s;
+
+}
+
+.shooting-stars span:nth-child(3){
+
+top:70%;
+left:-250px;
+animation-delay:5s;
+
+}
+
+@keyframes shoot{
+
+0%{
+
+transform:
+translateX(0)
+translateY(0)
+rotate(25deg);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateX(1700px)
+translateY(550px)
+rotate(25deg);
+
+opacity:0;
+
+}
+
+}
 body::before{
 
 content:"";
@@ -366,4 +553,13 @@ document.getElementById("modal").style.display="none";
 </script>
 
 </body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+
+<div class="shooting-stars">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 </html>
